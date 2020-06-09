@@ -1,27 +1,53 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    meta: { requireAuth: true },
+    redirect: { path: '/activity' },
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/squareLottery',
+    name: 'squareLottery',
+    meta: { requireAuth: true },
+    redirect: { path: '/squareLottery/config' },
+    component: () => import(/* webpackChunkName: "squareLottery" */ '../views/squareLottery/index.vue'),
+    children: [
+      {
+        path: 'config',
+        name: 'config',
+        meta: { requireAuth: true },
+        component: () => import(/* webpackChunkName: "config" */ '../views/squareLottery/config.vue'),
+      },
+      {
+        path: 'win',
+        name: 'win',
+        meta: { requireAuth: true },
+        component: () => import(/* webpackChunkName: "win" */ '../views/squareLottery/win.vue'),
+      },
+      {
+        path: 'lose',
+        name: 'lose',
+        meta: { requireAuth: true },
+        component: () => import(/* webpackChunkName: "lose" */ '../views/squareLottery/lose.vue'),
+      },
+    ],
+  },
+  {
+    path: '/activity',
+    name: 'activity',
+    meta: { requireAuth: true },
+    component: () => import(/* webpackChunkName: "activity" */ '../views/activity.vue'),
+  },
 ]
 
 const router = new VueRouter({
-  routes
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes,
 })
 
 export default router
