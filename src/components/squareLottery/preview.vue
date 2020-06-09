@@ -116,13 +116,13 @@ export default {
             <img :src="config.images[3].path" />
           </div>
           <div class="c-wrapper-play__box" :style="nBoxStyle">
-            <img :src="config.images[4].path" />
+            <img :src="config.images[6].path" />
           </div>
           <div class="c-wrapper-play__box" :style="nBoxStyle">
             <img :src="config.images[5].path" />
           </div>
           <div class="c-wrapper-play__box" :style="nBoxStyle">
-            <img :src="config.images[6].path" />
+            <img :src="config.images[4].path" />
           </div>
         </div>
       </div>
