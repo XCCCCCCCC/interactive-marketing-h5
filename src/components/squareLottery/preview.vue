@@ -74,8 +74,7 @@ export default {
     <span class="title">{{config.basic.title}}</span>
     <div v-show="showPrize" class="prize-wrapper">
       <div class="prize-wrapper__tip" :style="prizeStyle">
-        <p>饮品</p>
-        <p>买一赠一券</p>
+        <img src="/uploads/20200528180708_6812.png" />
       </div>
     </div>
     <perfect-scrollbar class="lottery-wrapper" id="lottery-wrapper" ref="lotteryWrapper">
@@ -173,11 +172,12 @@ export default {
     z-index: 1;
     background: rgba($color: #000000, $alpha: 0.6);
     &__tip {
+      @include flex-center();
       box-sizing: border-box;
-      width: 195px;
-      height: 260px;
+      width: 309px;
+      height: 375px;
       background-size: cover;
-      padding: 155px 40px 0 40px;
+      padding: 0 80px 0 80px;
       @include text-size(20px, 28px);
       font-weight: bold;
       color: #000;
@@ -204,14 +204,14 @@ export default {
         justify-content: space-between;
         flex-wrap: wrap;
         // margin: 0 12px 0 12px;
-        padding: 5px 17px 20px 17px;
+        padding: 15px 31px 15px 31px;
         background-size: 100% auto;
         background-repeat: no-repeat;
         // border-top: 1px solid #44372c;
         &__box {
           position: relative;
-          width: 110px;
-          height: 110px;
+          width: 101px;
+          height: 101px;
           background-size: cover;
           overflow: hidden;
           &.has-margin {
@@ -233,11 +233,12 @@ export default {
     .d-wrapper {
       position: relative;
       box-sizing: border-box;
-      padding: 40px 20px 10px 20px;
-      height: 200px;
+      padding: 70px 20px 10px 20px;
+      height: 295px;
       background-size: cover;
       text-align: left;
-      @include text-size(12px, 18px);
+      @include text-size(12px, 24px);
+      color: #cfc4af;
     }
     .edit-btn {
       position: absolute;
