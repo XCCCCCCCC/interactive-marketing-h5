@@ -3,8 +3,8 @@ import { getTypeList, create, getDetail, update } from '@/services/activity'
 function output(state) {
   return {
     title: state.basic.title,
-    from_datetime: state.basic.timeRange[0],
-    to_datetime: state.basic.timeRange[1],
+    from_datetime: moment(state.basic.timeRange[0]).format('YYYY/MM/DD HH:mm:ss'),
+    to_datetime: moment(state.basic.timeRange[1]).format('YYYY/MM/DD HH:mm:ss'),
     description: state.basic.description,
     total_chance: state.rule.total === 'free' ? -1 : state.rule.max,
     chance_per_day: state.rule.day,
@@ -31,10 +31,10 @@ const state = {
   basic: {
     title: '会员抽奖赢好礼',
     timeRange: [
-      moment().format('YYYY-MM-DD 00:00:00'),
+      moment().format('YYYY/MM/DD 00:00:00'),
       moment()
         .add(7, 'days')
-        .format('YYYY-MM-DD 23:59:59'),
+        .format('YYYY/MM/DD 23:59:59'),
     ],
     description: `1."会员抽奖赢好礼"活动需要花费30积分参与。\n2.活动周期为每月第一周周一(以自然月起始周为准),同一个账户在活动当日可以参与若干次抽奖。\n3."会员抽奖赢好礼"活动所消耗的30积分,一旦参与无论是否中奖，所消耗的积分不予返还。\n4.参加抽奖活动后请留意中奖产品领取页面的礼券使用规则。优惠券的有效期与使用范围请详见规则页面为准。\n5.发现作弊别取等行为，将取消参与及中奖资格积分不子返还。`,
   },
@@ -201,7 +201,7 @@ const mutations = {
   updateTemplateList(state, arr) {
     state.templateList = arr
     state.awards.forEach((award) => {
-      award.template = state.templateList[0] ? state.templateList[0].number : 'template1'
+      award.template = award.template || state.templateList[0].number
     })
   },
   updateId(state, val) {
@@ -212,10 +212,10 @@ const mutations = {
       basic: {
         title: '会员抽奖赢好礼',
         timeRange: [
-          moment().format('YYYY-MM-DD 00:00:00'),
+          moment().format('YYYY/MM/DD 00:00:00'),
           moment()
             .add(7, 'days')
-            .format('YYYY-MM-DD 23:59:59'),
+            .format('YYYY/MM/DD 23:59:59'),
         ],
         description: `1."会员抽奖赢好礼"活动需要花费30积分参与。\n2.活动周期为每月第一周周一(以自然月起始周为准),同一个账户在活动当日可以参与若干次抽奖。\n3."会员抽奖赢好礼"活动所消耗的30积分,一旦参与无论是否中奖，所消耗的积分不予返还。\n4.参加抽奖活动后请留意中奖产品领取页面的礼券使用规则。优惠券的有效期与使用范围请详见规则页面为准。\n5.发现作弊别取等行为，将取消参与及中奖资格积分不子返还。`,
       },

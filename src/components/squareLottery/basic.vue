@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     ...mapState({
-      form: state => state.squareLottery.config.basic,
+      form: (state) => state.squareLottery.config.basic,
     }),
     title: {
       get() {
@@ -70,7 +70,7 @@ export default {
         <el-date-picker
           v-model="timeRange"
           type="datetimerange"
-          format="yyyy-MM-dd HH:mm:ss"
+          format="yyyy/MM/dd HH:mm:ss"
           range-separator="至"
           start-placeholder="开始日期"
           end-placeholder="结束日期"

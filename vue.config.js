@@ -51,12 +51,12 @@ module.exports = {
     sockHost: 'http://0.0.0.0:8080',
     proxy: {
       '/api': {
-        target: 'http://10.8.8.230:18004/',
+        target: 'https://dmp.peets.cn/lottery-api',
         ws: true,
         changeOrigin: true,
       },
       '/uploads': {
-        target: 'http://10.8.8.230:18004/',
+        target: 'https://dmp.peets.cn/',
         ws: true,
         changeOrigin: true,
       },
