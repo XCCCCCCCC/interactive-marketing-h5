@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     ...mapState({
-      config: state => state.squareLottery.config,
+      config: (state) => state.squareLottery.config,
     }),
     showPrize() {
       return this.$route.query.showPrize === 'yes'
@@ -74,7 +74,8 @@ export default {
     <span class="title">{{config.basic.title}}</span>
     <div v-show="showPrize" class="prize-wrapper">
       <div class="prize-wrapper__tip" :style="prizeStyle">
-        <img src="/uploads/20200528180708_6812.png" />
+        <!-- <img src="/uploads/20200821172334_1076.png" /> -->
+        <img src="/uploads/20200821172158_7667.png" />
       </div>
     </div>
     <perfect-scrollbar class="lottery-wrapper" id="lottery-wrapper" ref="lotteryWrapper">
@@ -170,18 +171,21 @@ export default {
     left: 0;
     right: 0;
     z-index: 1;
-    background: rgba($color: #000000, $alpha: 0.6);
+    background: rgba($color: #000000, $alpha: 0.8);
     &__tip {
       @include flex-center();
       box-sizing: border-box;
-      width: 309px;
-      height: 375px;
+      width: 290px;
+      height: 413px;
       background-size: cover;
-      padding: 0 80px 0 80px;
+      padding: 0 25px;
       @include text-size(20px, 28px);
       font-weight: bold;
       color: #000;
       cursor: pointer;
+      img {
+        margin-top: 120px;
+      }
     }
   }
   .lottery-wrapper {
@@ -204,7 +208,7 @@ export default {
         justify-content: space-between;
         flex-wrap: wrap;
         // margin: 0 12px 0 12px;
-        padding: 15px 31px 15px 31px;
+        padding: 21px 29px 28px 32px;
         background-size: 100% auto;
         background-repeat: no-repeat;
         // border-top: 1px solid #44372c;
@@ -233,8 +237,8 @@ export default {
     .d-wrapper {
       position: relative;
       box-sizing: border-box;
-      padding: 70px 20px 10px 20px;
-      height: 295px;
+      padding: 45px 20px 10px 20px;
+      height: 269.5px;
       background-size: cover;
       text-align: left;
       @include text-size(12px, 24px);

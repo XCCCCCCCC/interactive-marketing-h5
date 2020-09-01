@@ -14,8 +14,8 @@ export default {
   },
   computed: {
     ...mapState({
-      squareLottery: state => state.squareLottery,
-      config: state => state.squareLottery.config,
+      squareLottery: (state) => state.squareLottery,
+      config: (state) => state.squareLottery.config,
     }),
     tabActiveName: {
       get() {
@@ -46,7 +46,7 @@ export default {
     ...mapActions('activity', ['publish']),
     handleFormCheck(activeName, oldActiveName) {
       let flag = true
-      this.$refs[oldActiveName].$refs['ruleForm'].validate(valid => {
+      this.$refs[oldActiveName].$refs['ruleForm'].validate((valid) => {
         if (!valid) {
           console.log('error submit!!')
           flag = false
@@ -60,7 +60,7 @@ export default {
     confirmPublish() {
       const self = this
       let flag = true
-      this.$refs[this.tabActiveName].$refs['ruleForm'].validate(valid => {
+      this.$refs[this.tabActiveName].$refs['ruleForm'].validate((valid) => {
         if (!valid) {
           console.log('error submit!!')
           flag = false
@@ -90,7 +90,7 @@ export default {
     },
     async save() {
       let flag = true
-      this.$refs[this.tabActiveName].$refs['ruleForm'].validate(valid => {
+      this.$refs[this.tabActiveName].$refs['ruleForm'].validate((valid) => {
         if (!valid) {
           console.log('error submit!!')
           flag = false
@@ -151,7 +151,7 @@ export default {
 <style lang="scss">
 #square-lottery-config {
   .preview-wrapper {
-    padding: 20px;
+    // padding: 20px;
     padding-left: 0;
     min-height: 667px;
     @include flex-center();
