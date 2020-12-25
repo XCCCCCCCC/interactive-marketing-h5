@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     ...mapState({
-      config: state => state.squareLottery.config,
+      config: (state) => state.squareLottery.config,
     }),
     showPrize() {
       return this.$route.query.showPrize === 'yes'
@@ -177,7 +177,7 @@ export default {
       width: 309px;
       height: 375px;
       background-size: cover;
-      padding: 0 80px 0 80px;
+      padding: 55px 80px 0 80px;
       @include text-size(20px, 28px);
       font-weight: bold;
       color: #000;
@@ -204,7 +204,7 @@ export default {
         justify-content: space-between;
         flex-wrap: wrap;
         // margin: 0 12px 0 12px;
-        padding: 15px 31px 15px 31px;
+        padding: 25px 31px 31px 31px;
         background-size: 100% auto;
         background-repeat: no-repeat;
         // border-top: 1px solid #44372c;
@@ -233,11 +233,12 @@ export default {
     .d-wrapper {
       position: relative;
       box-sizing: border-box;
-      padding: 70px 20px 10px 20px;
-      height: 295px;
-      background-size: cover;
+      padding: 45px 20px 10px 20px;
+      height: 270px;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
       text-align: left;
-      @include text-size(12px, 24px);
+      @include text-size(12px, 23px);
       color: #cfc4af;
     }
     .edit-btn {
