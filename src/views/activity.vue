@@ -10,9 +10,9 @@ export default {
   },
   computed: {
     ...mapState({
-      page: state => state.activity.page,
-      pageSize: state => state.activity.pageSize,
-      total: state => state.activity.total,
+      page: (state) => state.activity.page,
+      pageSize: (state) => state.activity.pageSize,
+      total: (state) => state.activity.total,
     }),
     page: {
       get() {
@@ -53,6 +53,7 @@ export default {
           next-text="下一页"
           :current-page.sync="page"
           :page-size="pageSize"
+          @current-change="getList"
           layout="prev, pager, next"
           :total="total"
         ></el-pagination>
