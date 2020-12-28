@@ -54,10 +54,10 @@ _axios.interceptors.response.use(
     // Do something with response data
     loadingvm.close()
     if (response.status === 200) {
-      if (response.data.code !== 200 && response.data.code !== 1) {
+      if (response.data.code !== 200 || response.data.status !== 0) {
         // eslint-disable-next-line new-cap
         Message({
-          message: '请求失败',
+          message: response.data.errors[0],
           type: 'error',
           onClose: () => {
             if (response.data.code === 401 || response.data.code === 403 || response.data.code === 404) {

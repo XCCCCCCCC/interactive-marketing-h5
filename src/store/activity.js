@@ -2,7 +2,7 @@ import { getList, publish, stop, remove } from '@/services/activity'
 const state = {
   page: 1,
   pageSize: 10,
-  total: 10,
+  total: 0,
   status: 'all',
   list: [],
 }
@@ -73,6 +73,7 @@ const mutations = {
       max: activity.total_chance === -1 ? '不限' : activity.total_chance,
       status: returnStatus(activity.status),
     }))
+    state.total = obj.total_num
   },
 }
 
